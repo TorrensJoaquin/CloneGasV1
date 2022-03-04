@@ -1,6 +1,7 @@
 let Background;
 let x = Array(15).fill(0);
 let SumOfComponents = 100;
+let MethaneNumber = 0;
 function preload(){
     Background = loadImage('Background.png');
 }
@@ -12,6 +13,8 @@ function draw() {
     image(Background,0,0);
     FromDOMsToX();
     text(SumOfComponents.toFixed(2),195,250);
+    text(MethaneNumber.toFixed(1),393,162);
+    MethaneNumber = MethaneNumberAVLSECCO(x[0],x[1]+x[8]+x[9],x[2],x[3]+x[4]+x[5]+x[6]+x[7]);
 }
 function FromDOMsToX(){
     x[0]=UpdateComponent(inpCH4);
@@ -32,10 +35,10 @@ function FromDOMsToX(){
     x[15]=UpdateComponent(inpH2O);
     //Normalization
     SumOfComponents=0;
-    for(let i=1; i < 16; i++){
+    for(let i=0; i < 16; i++){
         SumOfComponents+=x[i];
     }
-    for(let i=1; i < 16; i++){
+    for(let i=0; i < 16; i++){
         x[i]=x[i]/SumOfComponents;
     }
     function UpdateComponent(ComponentOfDOM){
