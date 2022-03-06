@@ -2132,8 +2132,7 @@ function MyNeuralWyB(){
     syn[2][15][1]=0.380151083060452;
     return syn;
 }
-function MyNeuralNetwork(){
-    x = [100, 0 ,0 ,0];
+function MyNeuralNetwork(x){
     let layer = Array(3);
     layer[0] = zeros2(1, 4);
     layer[1] = zeros2(1, 111);
