@@ -2254,3 +2254,17 @@ function transpose(matrix){
     }
     return matrix;
 }
+function zeros(dimensions) {
+    var array = [];
+    for (var i = 0; i <= dimensions[0]; ++i) {
+        array.push(dimensions.length == 1 ? 0 : zeros(dimensions.slice(1)));
+    }
+    return array;
+}
+function zeros2( DimensionA, DimensionB){
+    let array = Array(DimensionA);
+    for (let i = 0; i < DimensionA; ++i){
+        array[i] = Array(DimensionB).fill(0);
+    }
+    return array;
+}
