@@ -66,10 +66,10 @@ function generateTable(data) {
         if(data[i][0] == 'ETHANE'){c2h6+=parseFloat(data[i][1])}
         if(data[i][0] == 'ETANO'){c2h6+=parseFloat(data[i][1])}
         // 3 - Propano
-        if(data[i][0] == 'C3'){x[5]=x[5]+parseFloat(data[i][1])}
-        if(data[i][0] == 'C3H8'){x[5]=x[5]+parseFloat(data[i][1])}
-        if(data[i][0] == 'PROPANE'){x[5]=x[5]+parseFloat(data[i][1])}
-        if(data[i][0] == 'PROPANO'){x[5]=x[5]+parseFloat(data[i][1])}
+        if(data[i][0] == 'C3'){c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C3H8'){c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PROPANE'){c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PROPANO'){c3h8+=parseFloat(data[i][1])}
         // 4 - Iso Butano
         if(data[i][0] == 'IC4'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'IC4H10'){ic4h10+=parseFloat(data[i][1])}
