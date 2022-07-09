@@ -87,9 +87,18 @@ function generateTable(data) {
         if(data[i][0] == 'BUTANO'){nc4h10+=parseFloat(data[i][1])}
         // 6 - Pentano
         if(data[i][0] == 'IC5'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC5'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C5'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'IC5H12'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC5H12'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOPENTANE'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMALPENTANE'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NPENTANE'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PENTANE'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOPENTANO'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMALPENTANO'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NPENTANO'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PENTANO'){c5h12+=parseFloat(data[i][1])}
         // 7 - Hexano
         if(data[i][0] == 'NC6'){c6h14+=parseFloat(data[i][1])}
         if(data[i][0] == 'C6'){c6h14+=parseFloat(data[i][1])}
