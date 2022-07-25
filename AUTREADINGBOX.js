@@ -77,6 +77,8 @@ function generateTable(data) {
         if(data[i][0] == 'IC4H10'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOBUTANE'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOBUTANO'){ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IBUTANE'){ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IBUTANO'){ic4h10+=parseFloat(data[i][1])}
         // 5 - Nor Butano
         if(data[i][0] == 'NC4'){nc4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'C4'){nc4h10+=parseFloat(data[i][1])}
@@ -85,6 +87,8 @@ function generateTable(data) {
         if(data[i][0] == 'NORMAL BUTANE'){nc4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'BUTANE'){nc4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'BUTANO'){nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NBUTANE'){nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NBUTANO'){nc4h10+=parseFloat(data[i][1])}
         // 6 - Pentano
         if(data[i][0] == 'IC5'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'NC5'){c5h12+=parseFloat(data[i][1])}
