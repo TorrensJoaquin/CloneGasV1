@@ -47,6 +47,9 @@ function generateTable(data) {
         data[i][1] = data[i][1].replace(',', '.');
 
         data[i][0] = data[i][0].toUpperCase();
+        data[i][0] = data[i][0].replace('[', '');
+        data[i][0] = data[i][0].replace(']', '');
+        data[i][0] = data[i][0].replace('%', '');
         data[i][0] = data[i][0].replace('PC', '');
         data[i][0] = data[i][0].replace('_', '');
         data[i][0] = data[i][0].replace('CROMA', '');
