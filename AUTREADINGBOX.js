@@ -36,6 +36,7 @@ function generateTable(data) {
         for(let j=0; j < NumberOfColumns; j++){
             if(NumberOfColumns != data[i].length){console.log('Error reading the row/column '+ j + 1)}
             data[i][j] = data[i][j].replace(' ', ''); //Delete black spaces if presents.
+            data[i][j] = data[i][j].replace(',', '.');
         }
     }
     if (NumberOfColumns != 2 && NumberOfRows !=2){console.log('More than 2 rows/columns detected')} //I need the labels and the rows. if there are more data something must go wrong.
@@ -78,6 +79,7 @@ function generateTable(data) {
         // 4 - Iso Butano
         if(data[i][0] == 'IC4'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'IC4H10'){ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C4H10'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOBUTANE'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOBUTANO'){ic4h10+=parseFloat(data[i][1])}
         if(data[i][0] == 'IBUTANE'){ic4h10+=parseFloat(data[i][1])}
@@ -97,6 +99,7 @@ function generateTable(data) {
         if(data[i][0] == 'NC5'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'C5'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'IC5H12'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C5H12'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'NC5H12'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'ISOPENTANE'){c5h12+=parseFloat(data[i][1])}
         if(data[i][0] == 'NORMALPENTANE'){c5h12+=parseFloat(data[i][1])}
@@ -137,9 +140,9 @@ function generateTable(data) {
         if(data[i][0] == 'DECANE'){c7h16+=parseFloat(data[i][1])}
         if(data[i][0] == 'DECANO'){c7h16+=parseFloat(data[i][1])}
         // 9 - Acetylene
-        if(data[i][0] == 'ACETYLENE'){c2h4=parseFloat(data[i][1])}
-        if(data[i][0] == 'ACETILENO'){c2h4=parseFloat(data[i][1])}
-        if(data[i][0] == 'C2H4'){c2h4=parseFloat(data[i][1])}
+        if(data[i][0] == 'ACETYLENE'){c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ACETILENO'){c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C2H4'){c2h4+=parseFloat(data[i][1])}
         // 10 - Etileno
         if(data[i][0] == 'ETHYLENE'){c2h4+=parseFloat(data[i][1])}
         if(data[i][0] == 'ETILENO'){c2h4+=parseFloat(data[i][1])}
