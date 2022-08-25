@@ -45,8 +45,6 @@ function generateTable(data) {
         TransposeTheDataArray();
     }
     for(let i=0; i < NumberOfRows; i++){
-        data[i][1] = data[i][1].replace(',', '.');
-
         data[i][0] = data[i][0].toUpperCase();
         data[i][0] = data[i][0].replace('[', '');
         data[i][0] = data[i][0].replace(']', '');
