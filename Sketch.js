@@ -172,22 +172,22 @@ function FromDOMsToX(){
     }
 }
 function FromXToDOMs(){
-    inpCH4.value((Molar.ch4*100).toString());
-    inpC2H6.value((Molar.c2h6*100).toString());
-    inpC3H8.value((Molar.c3h8*100).toString());
-    inpISOC4H10.value((Molar.ic4h10*100).toString());
-    inpNC4H10.value((Molar.nc4h10*100).toString());
-    inpC5H12.value((Molar.c5h12*100).toString());
-    inpC6H14.value((Molar.c6h14*100).toString());
-    inpC7H16.value((Molar.c7h16*100).toString());    
-    inpC2H2.value((Molar.c2h2*100).toString());
-    inpc2h4.value((Molar.c2h4*100).toString());
-    inpH2.value((Molar.h2*100).toString());
-    inpCO.value((Molar.co*100).toString());
-    inpCO2.value((Molar.CO2*100).toString());
-    inpN2.value((Molar.n2*100).toString());
-    inpO2.value((Molar.O2*100).toString());
-    inpH2O.value((Molar.h2o*100).toString());
+    inpCH4.value((Molar.ch4).toString());
+    inpC2H6.value((Molar.c2h6).toString());
+    inpC3H8.value((Molar.c3h8).toString());
+    inpISOC4H10.value((Molar.ic4h10).toString());
+    inpNC4H10.value((Molar.nc4h10).toString());
+    inpC5H12.value((Molar.c5h12).toString());
+    inpC6H14.value((Molar.c6h14).toString());
+    inpC7H16.value((Molar.c7h16).toString());    
+    inpC2H2.value((Molar.c2h2).toString());
+    inpc2h4.value((Molar.c2h4).toString());
+    inpH2.value((Molar.h2).toString());
+    inpCO.value((Molar.co).toString());
+    inpCO2.value((Molar.CO2).toString());
+    inpN2.value((Molar.n2).toString());
+    inpO2.value((Molar.O2).toString());
+    inpH2O.value((Molar.h2o).toString());
 }
 function CreateDOMs(){
     let InitialX=80;
