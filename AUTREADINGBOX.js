@@ -9,22 +9,22 @@ function InputIsActivated(){
     };
 }
 function generateTable(data) {
-    ch4 = 0;
-    c2h6 = 0;
-    c2h4 = 0;
-    c3h8 = 0;
-    ic4h10 = 0;
-    nc4h10 = 0;
-    c5h12 = 0;
-    c6h14 = 0;
-    c7h16 = 0;
-    c2h2 = 0;
-    h2 = 0;
-    co = 0;
-    CO2 = 0;
-    n2 = 0;
-    O2 = 0;
-    h2o = 0; 
+    Molar.ch4 = 0;
+    Molar.c2h6 = 0;
+    Molar.c2h4 = 0;
+    Molar.c3h8 = 0;
+    Molar.ic4h10 = 0;
+    Molar.nc4h10 = 0;
+    Molar.c5h12 = 0;
+    Molar.c6h14 = 0;
+    Molar.c7h16 = 0;
+    Molar.c2h2 = 0;
+    Molar.h2 = 0;
+    Molar.co = 0;
+    Molar.CO2 = 0;
+    Molar.n2 = 0;
+    Molar.O2 = 0;
+    Molar.h2o = 0; 
     data = data.split("\n");
     let NumberOfRows = data.length;
     DeleteEmptySpaces();
@@ -59,143 +59,122 @@ function generateTable(data) {
         data[i][0] = data[i][0].replace('Ú', 'U');
 
         // 1 - Metano
-        if(data[i][0] == 'C1'){ch4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'CH4'){ch4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'METHANE'){ch4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'METANO'){ch4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C1'){Molar.ch4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CH4'){Molar.ch4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'METHANE'){Molar.ch4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'METANO'){Molar.ch4+=parseFloat(data[i][1])}
         // 2 - Etano
-        if(data[i][0] == 'C2'){c2h6+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C2H6'){c2h6+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ETHANE'){c2h6+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ETANO'){c2h6+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C2'){Molar.c2h6+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C2H6'){Molar.c2h6+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ETHANE'){Molar.c2h6+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ETANO'){Molar.c2h6+=parseFloat(data[i][1])}
         // 3 - Propano
-        if(data[i][0] == 'C3'){c3h8+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C3H8'){c3h8+=parseFloat(data[i][1])}
-        if(data[i][0] == 'PROPANE'){c3h8+=parseFloat(data[i][1])}
-        if(data[i][0] == 'PROPANO'){c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C3'){Molar.c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C3H8'){Molar.c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PROPANE'){Molar.c3h8+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PROPANO'){Molar.c3h8+=parseFloat(data[i][1])}
         // 4 - Iso Butano
-        if(data[i][0] == 'IC4'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'IC4H10'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C4H10'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ISOBUTANE'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ISOBUTANO'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'IBUTANE'){ic4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'IBUTANO'){ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IC4'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IC4H10'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C4H10'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ISOBUTANE'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ISOBUTANO'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IBUTANE'){Molar.ic4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IBUTANO'){Molar.ic4h10+=parseFloat(data[i][1])}
         // 5 - Nor Butano
-        if(data[i][0] == 'NC4'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C4'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC4H10'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NORMALBUTANE'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NORMAL BUTANE'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'BUTANE'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'BUTANO'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NBUTANE'){nc4h10+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NBUTANO'){nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC4'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C4'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC4H10'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMALBUTANE'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMAL BUTANE'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'BUTANE'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'BUTANO'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NBUTANE'){Molar.nc4h10+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NBUTANO'){Molar.nc4h10+=parseFloat(data[i][1])}
         // 6 - Pentano
-        if(data[i][0] == 'IC5'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC5'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C5'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'IC5H12'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C5H12'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC5H12'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ISOPENTANE'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NORMALPENTANE'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NPENTANE'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'PENTANE'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ISOPENTANO'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NORMALPENTANO'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NPENTANO'){c5h12+=parseFloat(data[i][1])}
-        if(data[i][0] == 'PENTANO'){c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IC5'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC5'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C5'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'IC5H12'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C5H12'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC5H12'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ISOPENTANE'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMALPENTANE'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NPENTANE'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PENTANE'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ISOPENTANO'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NORMALPENTANO'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NPENTANO'){Molar.c5h12+=parseFloat(data[i][1])}
+        if(data[i][0] == 'PENTANO'){Molar.c5h12+=parseFloat(data[i][1])}
         // 7 - Hexano
-        if(data[i][0] == 'NC6'){c6h14+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C6'){c6h14+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C6H14'){c6h14+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HEXANE'){c6h14+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HEXANO'){c6h14+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC6'){Molar.c6h14+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C6'){Molar.c6h14+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C6H14'){Molar.c6h14+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HEXANE'){Molar.c6h14+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HEXANO'){Molar.c6h14+=parseFloat(data[i][1])}
         // 8 - Heptano
-        if(data[i][0] == 'NC7'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C7'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C7H16'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HEPTANE'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HEPTANO'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC8'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C8'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C8H18'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C8H18+'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'OCTANE'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'OCTANO'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC9'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C9'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C9H20'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C9H20+'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NONANE'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NONANO'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'NC10'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C10'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C10H22'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C10H22+'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'DECANE'){c7h16+=parseFloat(data[i][1])}
-        if(data[i][0] == 'DECANO'){c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC7'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C7'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C7H16'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HEPTANE'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HEPTANO'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC8'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C8'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C8H18'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C8H18+'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'OCTANE'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'OCTANO'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC9'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C9'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C9H20'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C9H20+'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NONANE'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NONANO'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'NC10'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C10'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C10H22'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C10H22+'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'DECANE'){Molar.c7h16+=parseFloat(data[i][1])}
+        if(data[i][0] == 'DECANO'){Molar.c7h16+=parseFloat(data[i][1])}
         // 9 - Acetylene
-        if(data[i][0] == 'ACETYLENE'){c2h4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ACETILENO'){c2h4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C2H4'){c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ACETYLENE'){Molar.c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ACETILENO'){Molar.c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C2H4'){Molar.c2h4+=parseFloat(data[i][1])}
         // 10 - Etileno
-        if(data[i][0] == 'ETHYLENE'){c2h4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'ETILENO'){c2h4+=parseFloat(data[i][1])}
-        if(data[i][0] == 'C2H4'){c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ETHYLENE'){Molar.c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'ETILENO'){Molar.c2h4+=parseFloat(data[i][1])}
+        if(data[i][0] == 'C2H4'){Molar.c2h4+=parseFloat(data[i][1])}
         // 11 - Hidrogeno
-        if(data[i][0] == 'H2'){h2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'H'){h2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HYDROGEN'){h2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'HIDROGENO'){h2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'H2'){Molar.h2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'H'){Molar.h2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HYDROGEN'){Molar.h2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'HIDROGENO'){Molar.h2+=parseFloat(data[i][1])}
         // 12 - Monoxido de Carbono
-        if(data[i][0] == 'CO'){co+=parseFloat(data[i][1])}
-        if(data[i][0] == 'CARBON MONOXIDE'){co+=parseFloat(data[i][1])}
-        if(data[i][0] == 'MONOXIDO DE CARBONO'){co+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CO'){Molar.co+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CARBON MONOXIDE'){Molar.co+=parseFloat(data[i][1])}
+        if(data[i][0] == 'MONOXIDO DE CARBONO'){Molar.co+=parseFloat(data[i][1])}
         // 13 - Dioxido de Carbono
-        if(data[i][0] == 'CO2'){CO2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'CARBON DIOXIDE'){CO2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'DIOXIDO DE CARBONO'){CO2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'CARBONIC ACID'){CO2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CO2'){Molar.CO2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CARBON DIOXIDE'){Molar.CO2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'DIOXIDO DE CARBONO'){Molar.CO2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'CARBONIC ACID'){Molar.CO2+=parseFloat(data[i][1])}
         // 14 - Nitrogeno
-        if(data[i][0] == "N2"){n2+=parseFloat(data[i][1])}
-        if(data[i][0] == "NITROGEN"){n2+=parseFloat(data[i][1])}
-        if(data[i][0] == "NITROGENO"){n2+=parseFloat(data[i][1])}
-        if(data[i][0] == "N"){n2+=parseFloat(data[i][1])}
+        if(data[i][0] == "N2"){Molar.n2+=parseFloat(data[i][1])}
+        if(data[i][0] == "NITROGEN"){Molar.n2+=parseFloat(data[i][1])}
+        if(data[i][0] == "NITROGENO"){Molar.n2+=parseFloat(data[i][1])}
+        if(data[i][0] == "N"){Molar.n2+=parseFloat(data[i][1])}
         // 15 - Oxígeno
-        if(data[i][0] == 'O2'){O2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'O'){O2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'OXYGEN'){O2+=parseFloat(data[i][1])}
-        if(data[i][0] == 'OXIGENO'){O2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'O2'){Molar.O2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'O'){Molar.O2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'OXYGEN'){Molar.O2+=parseFloat(data[i][1])}
+        if(data[i][0] == 'OXIGENO'){Molar.O2+=parseFloat(data[i][1])}
         // 16 - Agua
-        if(data[i][0] == 'H2O'){h2o+=parseFloat(data[i][1])}
-        if(data[i][0] == 'OH2'){h2o+=parseFloat(data[i][1])}
-        if(data[i][0] == 'WATER'){h2o+=parseFloat(data[i][1])}
-        if(data[i][0] == 'AGUA'){h2o+=parseFloat(data[i][1])}
+        if(data[i][0] == 'H2O'){Molar.h2o+=parseFloat(data[i][1])}
+        if(data[i][0] == 'OH2'){Molar.h2o+=parseFloat(data[i][1])}
+        if(data[i][0] == 'WATER'){Molar.h2o+=parseFloat(data[i][1])}
+        if(data[i][0] == 'AGUA'){Molar.h2o+=parseFloat(data[i][1])}
     }
     InputFromXLS.elt.value = '';
-    //Normalization
-    let SumOfComponents=ch4+c2h6+c2h4+c3h8+ic4h10+nc4h10+c5h12+c6h14+c7h16+c2h2+h2+co+CO2+n2+O2+h2o;
-    if(SumOfComponents < 0.01){return}
-    SumOfComponents = 1/SumOfComponents;
-    if(ch4 > 0.0001){ch4 = ch4*SumOfComponents}
-    if(c2h6 > 0.0001){c2h6 = c2h6*SumOfComponents}
-    if(c3h8 > 0.0001){c3h8 = c3h8*SumOfComponents}
-    if(ic4h10 > 0.0001){ic4h10 = ic4h10*SumOfComponents}
-    if(nc4h10 > 0.0001){nc4h10 = nc4h10*SumOfComponents}
-    if(c5h12 > 0.0001){c5h12 = c5h12*SumOfComponents}
-    if(c6h14 > 0.0001){c6h14 = c6h14*SumOfComponents}
-    if(c7h16 > 0.0001){c7h16 = c7h16*SumOfComponents}
-
-    if(c2h2 > 0.0001){c2h2 = c2h2*SumOfComponents}
-    if(c2h4 > 0.0001){c2h4 = c2h4*SumOfComponents}
-    if(h2 > 0.0001){h2 = h2*SumOfComponents}
-    if(co > 0.0001){co = co*SumOfComponents}
-    if(CO2 > 0.0001){CO2 = CO2*SumOfComponents}
-    if(n2 > 0.0001){n2 = n2*SumOfComponents}
-    if(O2 > 0.0001){O2 = O2*SumOfComponents}
-    if(h2o > 0.0001){h2o = h2o*SumOfComponents}
     FromXToDOMs();
 
     function TransposeTheDataArray(){

@@ -1,20 +1,112 @@
 let Background;
-let ch4 = 0.01;
-let c2h6 = 0;
-let c2h4 = 0;
-let c3h8 = 0;
-let ic4h10 = 0;
-let nc4h10 = 0;
-let c5h12 = 0;
-let c6h14 = 0;
-let c7h16 = 0;
-let c2h2 = 0;
-let h2 = 0;
-let co = 0;
-let CO2 = 0;
-let n2 = 0;
-let O2 = 0;
-let h2o = 0; 
+let Molar = {
+    ch4 : 0.01,
+    c2h6 : 0,
+    c2h4 : 0,
+    c3h8 : 0,
+    ic4h10 : 0,
+    nc4h10 : 0,
+    c5h12 : 0,
+    c6h14 : 0,
+    c7h16 : 0,
+    c2h2 : 0,
+    h2 : 0,
+    co : 0,
+    CO2 : 0,
+    n2 : 0,
+    O2 : 0,
+    h2o : 0    
+}
+let Volume = {
+    ch4 : 0,
+    c2h6 : 0,
+    c2h4 : 0,
+    c3h8 : 0,
+    ic4h10 : 0,
+    nc4h10 : 0,
+    c5h12 : 0,
+    c6h14 : 0,
+    c7h16 : 0,
+    c2h2 : 0,
+    h2 : 0,
+    co : 0,
+    CO2 : 0,
+    n2 : 0,
+    O2 : 0,
+    h2o : 0    
+}
+function MolarToVolume(){
+    let RealGasFactor = {
+        ch4 : 0.99756,
+        c2h6 : 0.99006,
+        c2h4 : 0.99249,
+        c3h8 : 0.97830,
+        ic4h10 : 0.9575,
+        nc4h10 : 0.96150,
+        c5h12 : 0.9325,
+        c6h14 : 0.8968,
+        c7h16 : 0.8165,
+        c2h2 : 0.99162,
+        h2 : 1.00062,
+        co : 0.99938,
+        CO2 : 0.99318,
+        n2 : 0.99954,
+        O2 : 0.99903,
+        h2o : 0.941
+    }
+    let Sum = 0;
+    Volume.ch4    = Molar.ch4    * RealGasFactor.ch4; Sum   += Volume.ch4;
+    Volume.c2h6   = Molar.c2h6   * RealGasFactor.c2h6; Sum  += Volume.c2h6;
+    Volume.c2h4   = Molar.c2h4   * RealGasFactor.c2h4; Sum  += Volume.ch4;
+    Volume.c3h8   = Molar.c3h8   * RealGasFactor.c3h8; Sum  += Volume.ch4;
+    Volume.ic4h10 = Molar.ic4h10 * RealGasFactor.ic4h10; Sum+= Volume.ch4;
+    Volume.nc4h10 = Molar.nc4h10 * RealGasFactor.nc4h10; Sum+= Volume.ch4;
+    Volume.c5h12  = Molar.c5h12  * RealGasFactor.c5h12; Sum += Volume.ch4;
+    Volume.c6h14  = Molar.c6h14  * RealGasFactor.c6h14; Sum += Volume.ch4;
+    Volume.c7h16  = Molar.c7h16  * RealGasFactor.c7h16; Sum += Volume.ch4;
+    Volume.c2h2   = Molar.c2h2   * RealGasFactor.c2h2; Sum  += Volume.ch4;
+    Volume.h2     = Molar.h2     * RealGasFactor.h2; Sum    += Volume.ch4;
+    Volume.co     = Molar.co     * RealGasFactor.co; Sum    += Volume.ch4;
+    Volume.CO2    = Molar.CO2    * RealGasFactor.CO2; Sum   += Volume.ch4;
+    Volume.n2     = Molar.n2     * RealGasFactor.n2; Sum    += Volume.ch4;
+    Volume.O2     = Molar.O2     * RealGasFactor.O2; Sum    += Volume.ch4;
+    Volume.h2o    = Molar.h2o    * RealGasFactor.h2o; Sum   += Volume.ch4;
+
+    Volume.ch4    = Volume.ch4   / Sum;
+    Volume.c2h6   = Volume.c2h6  / Sum;
+    Volume.c2h4   = Volume.c2h4  / Sum;
+    Volume.c3h8   = Volume.c3h8  / Sum;
+    Volume.ic4h10 = Volume.ic4h10/ Sum;
+    Volume.nc4h10 = Volume.nc4h10/ Sum;
+    Volume.c5h12  = Volume.c5h12 / Sum;
+    Volume.c6h14  = Volume.c6h14 / Sum;
+    Volume.c7h16  = Volume.c7h16 / Sum;
+    Volume.c2h2   = Volume.c2h2  / Sum;
+    Volume.h2     = Volume.h2    / Sum;
+    Volume.co     = Volume.co    / Sum;
+    Volume.CO2    = Volume.CO2   / Sum;
+    Volume.n2     = Volume.n2    / Sum;
+    Volume.O2     = Volume.O2    / Sum;
+    Volume.h2o    = Volume.h2o   / Sum;
+}
+let Mass = {
+    ch4 : 0,
+    c2h6 : 0,
+    c2h4 : 0,
+    c3h8 : 0,
+    ic4h10 : 0,
+    nc4h10 : 0,
+    c5h12 : 0,
+    c6h14 : 0,
+    c7h16 : 0,
+    c2h2 : 0,
+    h2 : 0,
+    co : 0,
+    CO2 : 0,
+    n2 : 0,
+    O2 : 0,
+    h2o : 0    
+}
 let Results = {
     air2fuel: 0,
     Density : 0,
@@ -40,47 +132,62 @@ function draw(){
     text(Results.MethaneNumber.toFixed(1) + ' []',390,161);
 }
 function FromDOMsToX(){
-    ch4=UpdateComponent(inpCH4);
-    c2h6=UpdateComponent(inpC2H6);
-    c3h8=UpdateComponent(inpC3H8);
-    ic4h10=UpdateComponent(inpISOC4H10);
-    nc4h10=UpdateComponent(inpNC4H10);
-    c5h12=UpdateComponent(inpC5H12);
-    c6h14=UpdateComponent(inpC6H14);
-    c7h16=UpdateComponent(inpC7H16);
-    c2h2=UpdateComponent(inpC2H2);
-    c2h4=UpdateComponent(inpC2H4);
-    h2=UpdateComponent(inpH2);
-    co=UpdateComponent(inpCO);
-    CO2=UpdateComponent(inpCO2);
-    n2=UpdateComponent(inpN2);
-    O2=UpdateComponent(inpO2);
-    h2o=UpdateComponent(inpH2O);
-    Results.SumOfComponents=ch4+c2h6+c3h8+ic4h10+nc4h10+c5h12+c6h14+c7h16+c2h2+h2+co+CO2+n2+O2+h2o;
+    Molar.ch4=UpdateComponent(inpCH4);
+    Molar.c2h6=UpdateComponent(inpC2H6);
+    Molar.c3h8=UpdateComponent(inpC3H8);
+    Molar.ic4h10=UpdateComponent(inpISOC4H10);
+    Molar.nc4h10=UpdateComponent(inpNC4H10);
+    Molar.c5h12=UpdateComponent(inpC5H12);
+    Molar.c6h14=UpdateComponent(inpC6H14);
+    Molar.c7h16=UpdateComponent(inpC7H16);
+    Molar.c2h2=UpdateComponent(inpC2H2);
+    Molar.c2h4=UpdateComponent(inpc2h4);
+    Molar.h2=UpdateComponent(inpH2);
+    Molar.co=UpdateComponent(inpCO);
+    Molar.CO2=UpdateComponent(inpCO2);
+    Molar.n2=UpdateComponent(inpN2);
+    Molar.O2=UpdateComponent(inpO2);
+    Molar.h2o=UpdateComponent(inpH2O);
+
+    Results.SumOfComponents =Molar.ch4;
+    Results.SumOfComponents+=Molar.c2h6;
+    Results.SumOfComponents+=Molar.c3h8;
+    Results.SumOfComponents+=Molar.ic4h10;
+    Results.SumOfComponents+=Molar.nc4h10;
+    Results.SumOfComponents+=Molar.c5h12;
+    Results.SumOfComponents+=Molar.c6h14;
+    Results.SumOfComponents+=Molar.c7h16;
+    Results.SumOfComponents+=Molar.c2h2;
+    Results.SumOfComponents+=Molar.c2h4;
+    Results.SumOfComponents+=Molar.h2;
+    Results.SumOfComponents+=Molar.co;
+    Results.SumOfComponents+=Molar.CO2;
+    Results.SumOfComponents+=Molar.n2;
+    Results.SumOfComponents+=Molar.O2;
+    Results.SumOfComponents+=Molar.h2o;
+
     function UpdateComponent(ComponentOfDOM){
-        if(ComponentOfDOM.value()==''){
-            return 0;
-        }
+        if(ComponentOfDOM.value()==''){return 0}
         return parseFloat(ComponentOfDOM.value());
     }
 }
 function FromXToDOMs(){
-    inpCH4.value((ch4*100).toString());
-    inpC2H6.value((c2h6*100).toString());
-    inpC3H8.value((c3h8*100).toString());
-    inpISOC4H10.value((ic4h10*100).toString());
-    inpNC4H10.value((nc4h10*100).toString());
-    inpC5H12.value((c5h12*100).toString());
-    inpC6H14.value((c6h14*100).toString());
-    inpC7H16.value((c7h16*100).toString());    
-    inpC2H2.value((c2h2*100).toString());
-    inpC2H4.value((c2h4*100).toString());
-    inpH2.value((h2*100).toString());
-    inpCO.value((co*100).toString());
-    inpCO2.value((CO2*100).toString());
-    inpN2.value((n2*100).toString());
-    inpO2.value((O2*100).toString());
-    inpH2O.value((h2o*100).toString());
+    inpCH4.value((Molar.ch4*100).toString());
+    inpC2H6.value((Molar.c2h6*100).toString());
+    inpC3H8.value((Molar.c3h8*100).toString());
+    inpISOC4H10.value((Molar.ic4h10*100).toString());
+    inpNC4H10.value((Molar.nc4h10*100).toString());
+    inpC5H12.value((Molar.c5h12*100).toString());
+    inpC6H14.value((Molar.c6h14*100).toString());
+    inpC7H16.value((Molar.c7h16*100).toString());    
+    inpC2H2.value((Molar.c2h2*100).toString());
+    inpc2h4.value((Molar.c2h4*100).toString());
+    inpH2.value((Molar.h2*100).toString());
+    inpCO.value((Molar.co*100).toString());
+    inpCO2.value((Molar.CO2*100).toString());
+    inpN2.value((Molar.n2*100).toString());
+    inpO2.value((Molar.O2*100).toString());
+    inpH2O.value((Molar.h2o*100).toString());
 }
 function CreateDOMs(){
     let InitialX=80;
@@ -90,49 +197,49 @@ function CreateDOMs(){
     let SizeOfInput=[31,13];
     let aux=[InitialX,InitialY];
  
-    inpCH4=createInput((ch4*100).toString());
+    inpCH4=createInput((Molar.ch4*100).toString());
     inpCH4.size(SizeOfInput[0],SizeOfInput[1]);
     inpCH4.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpC2H6=createInput((c2h6*100).toString());
+    inpC2H6=createInput((Molar.c2h6*100).toString());
     inpC2H6.size(SizeOfInput[0],SizeOfInput[1]);
     inpC2H6.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpC3H8=createInput((c3h8*100).toString());
+    inpC3H8=createInput((Molar.c3h8*100).toString());
     inpC3H8.size(SizeOfInput[0],SizeOfInput[1]);
     inpC3H8.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpISOC4H10=createInput((ic4h10*100).toString());
+    inpISOC4H10=createInput((Molar.ic4h10*100).toString());
     inpISOC4H10.size(SizeOfInput[0],SizeOfInput[1]);
     inpISOC4H10.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpNC4H10=createInput((nc4h10*100).toString());
+    inpNC4H10=createInput((Molar.nc4h10*100).toString());
     inpNC4H10.size(SizeOfInput[0],SizeOfInput[1]);
     inpNC4H10.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpC5H12=createInput((c5h12*100).toString());
+    inpC5H12=createInput((Molar.c5h12*100).toString());
     inpC5H12.size(SizeOfInput[0],SizeOfInput[1]);
     inpC5H12.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpC6H14=createInput((c6h14*100).toString());
+    inpC6H14=createInput((Molar.c6h14*100).toString());
     inpC6H14.size(SizeOfInput[0],SizeOfInput[1]);
     inpC6H14.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
 
-    inpC7H16=createInput((c7h16*100).toString());
+    inpC7H16=createInput((Molar.c7h16*100).toString());
     inpC7H16.size(SizeOfInput[0],SizeOfInput[1]);
     inpC7H16.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
@@ -142,49 +249,49 @@ function CreateDOMs(){
     InitialY=45;
     aux=[InitialX,InitialY];
 
-    inpC2H2=createInput((c2h2*100).toString());
+    inpC2H2=createInput((Molar.c2h2*100).toString());
     inpC2H2.size(SizeOfInput[0],SizeOfInput[1]);
     inpC2H2.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpC2H4=createInput((h2*100).toString());
-    inpC2H4.size(SizeOfInput[0],SizeOfInput[1]);
-    inpC2H4.position(aux[0],aux[1]);
+    inpc2h4=createInput((Molar.c2h4*100).toString());
+    inpc2h4.size(SizeOfInput[0],SizeOfInput[1]);
+    inpc2h4.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpH2=createInput((h2*100).toString());
+    inpH2=createInput((Molar.h2*100).toString());
     inpH2.size(SizeOfInput[0],SizeOfInput[1]);
     inpH2.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpCO=createInput((co*100).toString());
+    inpCO=createInput((Molar.co*100).toString());
     inpCO.size(SizeOfInput[0],SizeOfInput[1]);
     inpCO.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpCO2=createInput((CO2*100).toString());
+    inpCO2=createInput((Molar.CO2*100).toString());
     inpCO2.size(SizeOfInput[0],SizeOfInput[1]);
     inpCO2.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpN2=createInput((n2*100).toString());
+    inpN2=createInput((Molar.n2*100).toString());
     inpN2.size(SizeOfInput[0],SizeOfInput[1]);
     inpN2.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpO2=createInput((O2*100).toString());
+    inpO2=createInput((Molar.O2*100).toString());
     inpO2.size(SizeOfInput[0],SizeOfInput[1]);
     inpO2.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
     aux[1]=aux[1]+SeparationY;
     
-    inpH2O=createInput((h2o*100).toString());
+    inpH2O=createInput((Molar.h2o*100).toString());
     inpH2O.size(SizeOfInput[0],SizeOfInput[1]);
     inpH2O.position(aux[0],aux[1]);
     aux[0]=aux[0]+SeparationX;
@@ -194,113 +301,220 @@ function mousePressed(){
     if(mouseX > 307 && mouseX < 482 &&
        mouseY > 215 && mouseY < 251){
         //Normalization
-        ch4/=Results.SumOfComponents;
-        c2h6/=Results.SumOfComponents;
-        c2h4/=Results.SumOfComponents;
-        c3h8/=Results.SumOfComponents;
-        ic4h10/=Results.SumOfComponents;
-        nc4h10/=Results.SumOfComponents;
-        c5h12/=Results.SumOfComponents;
-        c6h14/=Results.SumOfComponents;
-        c7h16/=Results.SumOfComponents;
-        c2h2/=Results.SumOfComponents;
-        h2/=Results.SumOfComponents;
-        co/=Results.SumOfComponents;
-        CO2/=Results.SumOfComponents;
-        n2/=Results.SumOfComponents;
-        O2/=Results.SumOfComponents;
-        h2o/=Results.SumOfComponents;
+        Molar.ch4/=Results.SumOfComponents;
+        Molar.c2h6/=Results.SumOfComponents;
+        Molar.c2h4/=Results.SumOfComponents;
+        Molar.c3h8/=Results.SumOfComponents;
+        Molar.ic4h10/=Results.SumOfComponents;
+        Molar.nc4h10/=Results.SumOfComponents;
+        Molar.c5h12/=Results.SumOfComponents;
+        Molar.c6h14/=Results.SumOfComponents;
+        Molar.c7h16/=Results.SumOfComponents;
+        Molar.c2h2/=Results.SumOfComponents;
+        Molar.h2/=Results.SumOfComponents;
+        Molar.co/=Results.SumOfComponents;
+        Molar.CO2/=Results.SumOfComponents;
+        Molar.n2/=Results.SumOfComponents;
+        Molar.O2/=Results.SumOfComponents;
+        Molar.h2o/=Results.SumOfComponents;
+        MolarToVolume();
         //
-        Results.air2fuel = airfuel(ch4,c2h6,c3h8,ic4h10,nc4h10,c5h12,c6h14,c7h16,c2h2,c2h4,h2,co,CO2,n2,O2,h2o);
-        Results.Density = density(ch4,c2h6,c3h8,ic4h10,nc4h10,c5h12,c6h14,c7h16,c2h2,c2h4,h2,co,CO2,n2,O2,h2o);
-        Results.CalorificValue = CalorificValue(ch4,c2h6,c3h8,ic4h10,nc4h10,c5h12,c6h14,c7h16,c2h2,c2h4,h2,co,CO2,n2,O2,h2o);
-        Results.MethaneNumber = MethaneNumberAVLSECCO(ch4,c2h6 + c2h2 + c2h4, c3h8, ic4h10+nc4h10+c5h12+c6h14+c7h16);
+        Results.air2fuel = airfuel();
+        Results.Density = density();
+        Results.CalorificValue = CalorificValue();
+        Results.MethaneNumber = MethaneNumberAVLSECCO();
         FromXToDOMs();
     }
     if(mouseX > 307 && mouseX < 482 &&
         mouseY > 178 && mouseY < 211){
         //Normalization
-        ch4=0.01;
-        c2h6=0;
-        c2h4=0;
-        c3h8=0;
-        ic4h10=0;
-        nc4h10=0;
-        c5h12=0;
-        c6h14=0;
-        c7h16=0;
-        c2h2=0;
-        h2=0;
-        co=0;
-        CO2=0;
-        n2=0;
-        O2=0;
-        h2o=0;
+        Molar.ch4=0.01;
+        Molar.c2h6=0;
+        Molar.c2h4=0;
+        Molar.c3h8=0;
+        Molar.ic4h10=0;
+        Molar.nc4h10=0;
+        Molar.c5h12=0;
+        Molar.c6h14=0;
+        Molar.c7h16=0;
+        Molar.c2h2=0;
+        Molar.h2=0;
+        Molar.co=0;
+        Molar.CO2=0;
+        Molar.n2=0;
+        Molar.O2=0;
+        Molar.h2o=0;
         FromXToDOMs();
     } 
 }
-function airfuel(ch4 , c2h6 , c3h8 , ic4h10 , nc4h10 , c5h12 , c6h14 , c7h16 , c2h2 , C2H4 , h2 , co , CO2 , n2 , O2 , h2o ){
-    let sum = ch4 + c2h6 + c3h8 + ic4h10 + nc4h10 + c5h12 + c6h14 + c7h16 + c2h2 + C2H4 + h2 + co + CO2 + n2 + O2 + h2o;
-    ch4 = ch4 / sum * 100;
-    c2h6 = c2h6 / sum * 100;
-    c3h8 = c3h8 / sum * 100;
-    ic4h10 = ic4h10 / sum * 100;
-    nc4h10 = nc4h10 / sum * 100;
-    c5h12 = c5h12 / sum * 100;
-    c6h14 = c6h14 / sum * 100;
-    c7h16 = c7h16 / sum * 100;
-    c2h2 = c2h2 / sum * 100;
-    C2H4 = C2H4 / sum * 100;
-    h2 = h2 / sum * 100;
-    co = co / sum * 100;
-    CO2 = CO2 / sum * 100;
-    n2 = n2 / sum * 100;
-    O2 = O2 / sum * 100;
-    h2o = h2o / sum * 100;
-    return ch4 * 0.0956 + c2h6 * 0.1686 + c3h8 * 0.2437 + ic4h10 * 0.3232 + nc4h10 * 0.3785 + c5h12 * 0.3785 + c6h14 * 0.4494 + c7h16 * 0.5222 + c2h2 * 0.119 + C2H4 * 0.1442 + h2 * 0.0238 + co * 0.0239 + CO2 * 0 + n2 * 0 + O2 * 0 + h2o * 0;
+function airfuel(){
+    let sum = Volume.ch4;
+    sum += Volume.c2h6;
+    sum += Volume.c3h8;
+    sum += Volume.ic4h10;
+    sum += Volume.nc4h10;
+    sum += Volume.c5h12;
+    sum += Volume.c6h14;
+    sum += Volume.c7h16;
+    sum += Volume.c2h2;
+    sum += Volume.c2h4;
+    sum += Volume.h2;
+    sum += Volume.co;
+    sum += Volume.CO2;
+    sum += Volume.n2;
+    sum += Volume.O2;
+    sum += Volume.h2o;
+
+    Volume.ch4    /= sum;
+    Volume.c2h6   /= sum;
+    Volume.c3h8   /= sum;
+    Volume.ic4h10 /= sum;
+    Volume.nc4h10 /= sum;
+    Volume.c5h12  /= sum;
+    Volume.c6h14  /= sum;
+    Volume.c7h16  /= sum;
+    Volume.c2h2   /= sum;
+    Volume.c2h4   /= sum;
+    Volume.h2     /= sum;
+    Volume.co     /= sum;
+    Volume.CO2    /= sum;
+    Volume.n2     /= sum;
+    Volume.O2     /= sum;
+    Volume.h2o    /= sum;
+
+    let result = Volume.ch4 * 0.0956;
+    result    += Volume.c2h6 * 0.1686;
+    result    += Volume.c3h8 * 0.2437;
+    result    += Volume.ic4h10 * 0.3232;
+    result    += Volume.nc4h10 * 0.3785;
+    result    += Volume.c5h12 * 0.3785;
+    result    += Volume.c6h14 * 0.4494;
+    result    += Volume.c7h16 * 0.5222;
+    result    += Volume.c2h2 * 0.119;
+    result    += Volume.c2h4 * 0.1442; 
+    result    += Volume.h2 * 0.0238;
+    result    += Volume.co * 0.0239;
+    //result += CO2 * 0;
+    //result += n2 * 0;
+    //result += O2 * 0;
+    //result += h2o * 0;
+    return result * 100;
 }
-function density(ch4 , c2h6 , c3h8 , ic4h10 , nc4h10 , c5h12 , c6h14 , c7h16 , c2h2 , C2H4 , h2 , co , CO2 , n2 , O2 , h2o ){
-    let sum = ch4 + c2h6 + c3h8 + ic4h10 + nc4h10 + c5h12 + c6h14 + c7h16 + c2h2 + C2H4 + h2 + co + CO2 + n2 + O2 + h2o;
-    ch4 = ch4 / sum * 100;
-    c2h6 = c2h6 / sum * 100;
-    c3h8 = c3h8 / sum * 100;
-    ic4h10 = ic4h10 / sum * 100;
-    nc4h10 = nc4h10 / sum * 100;
-    c5h12 = c5h12 / sum * 100;
-    c6h14 = c6h14 / sum * 100;
-    c7h16 = c7h16 / sum * 100;
-    c2h2 = c2h2 / sum * 100;
-    C2H4 = C2H4 / sum * 100;
-    h2 = h2 / sum * 100;
-    co = co / sum * 100;
-    CO2 = CO2 / sum * 100;
-    n2 = n2 / sum * 100;
-    O2 = O2 / sum * 100;
-    h2o = h2o / sum * 100;
-    return ch4 * 7.175 + c2h6 * 13.55 + c3h8 * 20.11 + ic4h10 * 26.89 + nc4h10 * 27.01 + c5h12 * 34.54 + c6h14 * 42.04 + c7h16 * 44.6 + c2h2 * 11.71 + C2H4 * 12.611 + h2 * 0.899 + co * 12.505 + CO2 * 19.768 + n2 * 12.504 + O2 * 14.289 + h2o * 8.54;
+function density(){
+    let sum = Volume.ch4;
+    sum += Volume.c2h6;
+    sum += Volume.c3h8;
+    sum += Volume.ic4h10;
+    sum += Volume.nc4h10;
+    sum += Volume.c5h12;
+    sum += Volume.c6h14;
+    sum += Volume.c7h16;
+    sum += Volume.c2h2;
+    sum += Volume.c2h4;
+    sum += Volume.h2;
+    sum += Volume.co;
+    sum += Volume.CO2;
+    sum += Volume.n2;
+    sum += Volume.O2;
+    sum += Volume.h2o;
+
+    Volume.ch4    /= sum;
+    Volume.c2h6   /= sum;
+    Volume.c3h8   /= sum;
+    Volume.ic4h10 /= sum;
+    Volume.nc4h10 /= sum;
+    Volume.c5h12  /= sum;
+    Volume.c6h14  /= sum;
+    Volume.c7h16  /= sum;
+    Volume.c2h2   /= sum;
+    Volume.c2h4   /= sum;
+    Volume.h2     /= sum;
+    Volume.co     /= sum;
+    Volume.CO2    /= sum;
+    Volume.n2     /= sum;
+    Volume.O2     /= sum;
+    Volume.h2o    /= sum;
+
+    let result = Volume.ch4 * 7.175;
+    result += Volume.c2h6 * 13.55;
+    result += Volume.c3h8 * 20.11;
+    result += Volume.ic4h10 * 26.89;
+    result += Volume.nc4h10 * 27.01;
+    result += Volume.c5h12 * 34.54;
+    result += Volume.c6h14 * 42.04;
+    result += Volume.c7h16 * 44.6;
+    result += Volume.c2h2 * 11.71;
+    result += Volume.c2h4 * 12.611;
+    result += Volume.h2 * 0.899;
+    result += Volume.co * 12.505;
+    result += Volume.CO2 * 19.768;
+    result += Volume.n2 * 12.504;
+    result += Volume.O2 * 14.289;
+    result += Volume.h2o * 8.54;
+
+    return result * 100;
 }
-function CalorificValue(ch4,c2h6,c3h8,ic4h10,nc4h10,c5h12,c6h14,c7h16,c2h2,C2H4,h2,co,CO2,n2,O2,h2o){
-    let sum = ch4 + c2h6 + c3h8 + ic4h10 + nc4h10 + c5h12 + c6h14 + c7h16 + c2h2 + C2H4 + h2 + co + CO2 + n2 + O2 + h2o;
-    ch4 = ch4 / sum * 100;
-    c2h6 = c2h6 / sum * 100;
-    c3h8 = c3h8 / sum * 100;
-    ic4h10 = ic4h10 / sum * 100;
-    nc4h10 = nc4h10 / sum * 100;
-    c5h12 = c5h12 / sum * 100;
-    c6h14 = c6h14 / sum * 100;
-    c7h16 = c7h16 / sum * 100;
-    c2h2 = c2h2 / sum * 100;
-    C2H4 = C2H4 / sum * 100;
-    h2 = h2 / sum * 100;
-    co = co / sum * 100;
-    CO2 = CO2 / sum * 100;
-    n2 = n2 / sum * 100;
-    O2 = O2 / sum * 100;
-    h2o = h2o / sum * 100;
-    return (ch4 * 9.97 + c2h6 * 17.87 + c3h8 * 25.89 + ic4h10 * 34.05 + nc4h10 * 34.3 + c5h12 * 43.51 + c6h14 * 52.67 + c7h16 * 54.67 + c2h2 * 15.36 + C2H4 * 16.52 + h2 * 2.99 + co * 3.51 + CO2 * 0 + n2 * 0 + O2 * 0 + h2o * 0) / (ch4 + c2h6 + c3h8 + ic4h10 + nc4h10 + c5h12 + c6h14 + c7h16 + c2h2 + h2 + co + CO2 + n2 + O2 + h2o)
+function CalorificValue(){
+    let sum = Volume.ch4;
+    sum += Volume.c2h6;
+    sum += Volume.c3h8;
+    sum += Volume.ic4h10;
+    sum += Volume.nc4h10;
+    sum += Volume.c5h12;
+    sum += Volume.c6h14;
+    sum += Volume.c7h16;
+    sum += Volume.c2h2;
+    sum += Volume.c2h4;
+    sum += Volume.h2;
+    sum += Volume.co;
+    sum += Volume.CO2;
+    sum += Volume.n2;
+    sum += Volume.O2;
+    sum += Volume.h2o;
+
+    Volume.ch4    /= sum;
+    Volume.c2h6   /= sum;
+    Volume.c3h8   /= sum;
+    Volume.ic4h10 /= sum;
+    Volume.nc4h10 /= sum;
+    Volume.c5h12  /= sum;
+    Volume.c6h14  /= sum;
+    Volume.c7h16  /= sum;
+    Volume.c2h2   /= sum;
+    Volume.c2h4   /= sum;
+    Volume.h2     /= sum;
+    Volume.co     /= sum;
+    Volume.CO2    /= sum;
+    Volume.n2     /= sum;
+    Volume.O2     /= sum;
+    Volume.h2o    /= sum;
+
+    let result = Volume.ch4 * 9.97;
+    result += Volume.c2h6 * 17.87;
+    result += Volume.c3h8 * 25.89;
+    result += Volume.ic4h10 * 34.05;
+    result += Volume.nc4h10 * 34.3;
+    result += Volume.c5h12 * 43.51;
+    result += Volume.c6h14 * 52.67;
+    result += Volume.c7h16 * 54.67;
+    result += Volume.c2h2 * 15.36;
+    result += Volume.c2h4 * 16.52; 
+    result += Volume.h2 * 2.99;
+    result += Volume.co * 3.51;
+
+    return result;
+
+    //result += Volume.CO2 * 0;
+    //result += Volume.n2 * 0;
+    //result += Volume.O2 * 0;
+    //result += Volume.h2o * 0;
 }
-function MethaneNumberAVLSECCO(Metanos, Etanos, Propanos, Butanos){
+function MethaneNumberAVLSECCO(){
     // Paso a una base del 100%
+    let Metanos = Volume.ch4;
+    let Etanos = Volume.c2h6 + Volume.c2h2 + Volume.c2h4;
+    let Propanos = Volume.c3h8;
+    let Butanos = Volume.ic4h10 + Volume.nc4h10 + Volume.c5h12 + Volume.c6h14 + Volume.c7h16;
     let Suma = Metanos + Etanos + Propanos + Butanos;
     let x = Array(4).fill(0);
     if(Metanos != 0){x[0] = Metanos / Suma * 100}
